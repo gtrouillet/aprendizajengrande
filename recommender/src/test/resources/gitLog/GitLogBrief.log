@@ -1,0 +1,38 @@
+commit: "fc14f9c1272f62c3e8d01300f52467c0d9af50f9", author: "Linus Torvalds"
+M       Makefile
+
+commit: "76c3073a888ae7f4790a146784bb5c34fc24b9d2", author: "akpm@osdl.org"
+M       fs/buffer.c
+
+commit: "95be5739588c56a9327e477aa0ba3c81c5cf8631", author: "Johan Hovold"
+commit: "323aca6c0bda611d0f31b3234d9fe291d31a9207", author: "akpm@osdl.org"
+M       mm/vmscan.c
+
+commit: "76272ab3f348d303eb31a5a061601ca8e0f9c5ce", author: "Greg Kroah-Hartman"
+M       drivers/staging/Kconfig
+M       drivers/staging/Makefile
+D       drivers/staging/rtl8821ae/Kconfig
+D       drivers/staging/rtl8821ae/Makefile
+D       drivers/staging/rtl8821ae/TODO
+D       drivers/staging/rtl8821ae/base.c
+D       drivers/staging/rtl8821ae/base.h
+D       drivers/staging/rtl8821ae/btcoexist/HalBtc8812a1Ant.c
+D       drivers/staging/rtl8821ae/btcoexist/HalBtc8812a1Ant.h
+D       drivers/staging/rtl8821ae/btcoexist/habtc8723a1ant.c
+D       drivers/staging/rtl8821ae/btcoexist/habtc8723a1ant.h
+D       drivers/staging/rtl8821ae/btcoexist/halbt_precomp.h
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8192e1ant.c
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8192e1ant.h
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8192e2ant.c
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8192e2ant.h
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8723a2ant.c
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8723a2ant.h
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8723b1ant.c
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8723b1ant.h
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8723b2ant.c
+D       drivers/staging/rtl8821ae/btcoexist/halbtc8723b2ant.h
+D       drivers/staging/rtl8821ae/btcoexist/halbtcoutsrc.c
+D       drivers/staging/rtl8821ae/btcoexist/halbtcoutsrc.h
+D       drivers/staging/rtl8821ae/btcoexist/rtl_btc.c
+D       drivers/staging/rtl8821ae/btcoexist/rtl_btc.h
+D       drivers/staging/rtl8821ae/cam.c
