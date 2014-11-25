@@ -16,8 +16,9 @@
 		<junit.version>4.11</junit.version>
 		<easymock.version>3.3</easymock.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
-		<hibernate.version>4.2.0.Final</hibernate.version>
+		<hibernate.version>4.3.7.Final</hibernate.version>
 		<spring.version>3.2.2.RELEASE</spring.version>
+		<guava.version>18.0</guava.version>
 	</properties>
 
 	<dependencies>
@@ -109,6 +110,12 @@
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<version>${hsqldb.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 
 		<!-- Test Dependencies -->

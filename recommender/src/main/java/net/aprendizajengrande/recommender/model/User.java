@@ -7,14 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * Class that represents the User of the commit
  * 
  * @author Germán E. Trouillet
  */
+@Table(indexes = { @Index(columnList = "NAME") })
 @Entity
+@NamedQueries({ @NamedQuery(name = "users.count", query = "SELECT COUNT(u) FROM User u") })
 public class User {
 
     @Id

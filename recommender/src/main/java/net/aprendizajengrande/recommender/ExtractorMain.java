@@ -24,7 +24,7 @@ public class ExtractorMain {
 
         GitLogExtractor extractor = context.getBean("gitLogExtractor",
                 GitLogExtractor.class);
-        extractor.extractLogInformation(new File(gitRepoPath));
+        extractor.extractLogInformation(new File(gitRepoPath), outputDBPath);
     }
 
 }

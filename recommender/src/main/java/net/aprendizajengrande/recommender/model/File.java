@@ -4,8 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
+@Table(indexes = { @Index(columnList = "PATH") })
 @Entity
+@NamedQueries({ @NamedQuery(name = "files.count", query = "SELECT COUNT(f) FROM File f") })
 public class File {
 
     @Id
@@ -15,9 +21,6 @@ public class File {
 
     @Column(name = "PATH")
     private String path;
-
-    @Column(name = "NAME")
-    private long name;
 
     public long getId() {
         return id;
@@ -33,14 +36,6 @@ public class File {
 
     public void setPath(String path) {
         this.path = path;
-    }
-
-    public long getName() {
-        return name;
-    }
-
-    public void setName(long name) {
-        this.name = name;
     }
 
 }
