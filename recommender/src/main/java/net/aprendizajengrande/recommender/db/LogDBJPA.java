@@ -214,7 +214,7 @@ public class LogDBJPA implements LogDB {
                 .getSingleResult();
     }
 
-    private static class Counter {
+    public static class Counter {
         private int value;
 
         public Counter() {

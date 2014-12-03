@@ -66,7 +66,7 @@ public class GitLogExtractor {
         try {
             final Process p = processFactory.createProccess(gitRepoPath, "git",
                     "log", "--format=format:commit: \"%H\", author: \"%an\"",
-                    "--name-status", "--no-merges");
+                    "--name-status");
             BufferedReader processOutput = new BufferedReader(
                     new InputStreamReader(p.getInputStream()));
 
@@ -146,8 +146,11 @@ public class GitLogExtractor {
             System.out.println("Error creating file");
         }
 
+        System.out.println("Exporting authors and commit-count ...");
         logDB.exportUserData(authors, commitCounts);
+        System.out.println("Exporting files ...");
         logDB.exportFiles(files);
+        System.out.println("Exporting counts ...");
         logDB.exportFileCommitCountPerUser(counts);
     }
 
