@@ -12,6 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hadoop.version>2.4.1</hadoop.version>
 		<mahout.version>1.0-SNAPSHOT</mahout.version>
+		<guava.version>18.0</guava.version>
 	</properties>
 
 	<dependencies>
@@ -73,6 +74,12 @@
 			<artifactId>commons-math3</artifactId>
 			<groupId>org.apache.commons</groupId>
 			<version>3.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 	</dependencies>
 

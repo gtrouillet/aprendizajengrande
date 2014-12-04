@@ -10,7 +10,10 @@ import net.aprendizajengrande.recommender.ItemSimilarityFactory.SimilarityType;
 
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
 import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
+import org.apache.mahout.cf.taste.impl.recommender.SamplingCandidateItemsStrategy;
 import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.recommender.CandidateItemsStrategy;
+import org.apache.mahout.cf.taste.recommender.MostSimilarItemsCandidateItemsStrategy;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
 import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
@@ -41,8 +44,12 @@ public class ItemBasedRecommender {
                 model, files);
 
         ItemSimilarity similarity = similarityFactory.getItemSimilarity(type);
+        CandidateItemsStrategy candidateStrategy = new SamplingCandidateItemsStrategy(
+                2, 1, 1, authors.size(), files.size());
+        MostSimilarItemsCandidateItemsStrategy mostSimilarStrategy = new SamplingCandidateItemsStrategy(
+                2, 1, 1, authors.size(), files.size());
         Recommender recommender = new GenericItemBasedRecommender(model,
-                similarity);
+                similarity, candidateStrategy, mostSimilarStrategy);
 
         // Generate recommendations
         System.out.println("Generate recommendations");
@@ -62,6 +69,7 @@ public class ItemBasedRecommender {
                             .append(String.valueOf(item.getValue()));
                     writer.newLine();
                 }
+                writer.flush();
             }
         }
     }

@@ -38,22 +38,21 @@ public class ItemSimilarityFactory {
         }
     }
 
-    Map<SimilarityType, ItemSimilarity> distances;
+    private DataModel model;
+    private List<String> files;
 
     public ItemSimilarityFactory(DataModel model, List<String> files)
             throws TasteException {
-        distances = Maps.newHashMap();
-        distances.put(SimilarityType.EUCLIDEAN,
-                new EuclideanDistanceSimilarity(model));
-        distances
-                .put(SimilarityType.FILE, new FileItemSimilarity(model, files));
+        this.model = model;
+        this.files = files;
     }
 
-    public ItemSimilarity getItemSimilarity(SimilarityType type) {
-        if (distances.containsKey(type)) {
-            return distances.get(type);
+    public ItemSimilarity getItemSimilarity(SimilarityType type)
+            throws TasteException {
+        if (SimilarityType.EUCLIDEAN.equals(type)) {
+            return new EuclideanDistanceSimilarity(model);
         } else {
-            throw new IllegalStateException("Can not find distance: " + type);
+            return new FileItemSimilarity(model, files);
         }
     }
 }
