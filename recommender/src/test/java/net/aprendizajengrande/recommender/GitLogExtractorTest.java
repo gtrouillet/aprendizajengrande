@@ -30,7 +30,7 @@ public class GitLogExtractorTest {
     public void setUp() {
         processFactory = createMock(ProcessFactory.class);
         logDB = createMock(LogDB.class);
-        gitLogExtractor = new GitLogExtractor(processFactory, logDB);
+        gitLogExtractor = new GitLogExtractorDummy(processFactory, logDB);
     }
 
     @Test
@@ -40,13 +40,17 @@ public class GitLogExtractorTest {
         expect(
                 processFactory.createProccess(gitRepoPath, "git", "log",
                         "--format=format:commit: \"%H\", author: \"%an\"",
-                        "--name-status", "--no-merges")).andReturn(process);
+                        "--name-status")).andReturn(process);
 
         expect(process.getInputStream()).andReturn(
                 getClass().getResourceAsStream("/gitLog/GitLogBrief.log"));
         expect(process.waitFor()).andReturn(0);
         logDB.addCommit(anyObject(Commit.class));
         expectLastCall().times(4);
+        
+        expect(logDB.getUserCount()).andReturn(3L);
+        expect(logDB.getCommitCount()).andReturn(4L);
+        expect(logDB.getFileCount()).andReturn(30L);
 
         replay(processFactory, logDB, gitRepoPath, process);
 
@@ -55,4 +59,16 @@ public class GitLogExtractorTest {
         verify(processFactory, logDB, gitRepoPath, process);
     }
 
+    
+    private static class GitLogExtractorDummy extends GitLogExtractor {
+
+        public GitLogExtractorDummy(ProcessFactory processFactory, LogDB logDB) {
+            super(processFactory, logDB);
+        }
+        
+        protected void exportData(String outPutDirectory) {
+            // DO NOTHING
+        }
+        
+    }
 }

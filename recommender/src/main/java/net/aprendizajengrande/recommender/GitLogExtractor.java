@@ -123,7 +123,7 @@ public class GitLogExtractor {
         }
     }
 
-    private void exportData(String outPutDirectory) {
+    protected void exportData(String outPutDirectory) {
         // Creates the files, remove them if exist
         Path authors = Paths.get(outPutDirectory, USR_FILE_NAME);
         Path commitCounts = Paths.get(outPutDirectory, CC_FILE_NAME);
